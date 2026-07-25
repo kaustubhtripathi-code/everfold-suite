@@ -1,8 +1,10 @@
 # HANDOVER — productivity-suite-site ("Everfold Suite")
 
 Suite showcase landing page for FreelancerOS + Snapline + ScribeGlass + JARVIS/Vaani.
-**PUBLIC + LIVE: https://kaustubhtripathi-code.github.io/studio-stack/**
-(repo `kaustubhtripathi-code/studio-stack` — note the repo name differs from this folder).
+**PUBLIC + LIVE: https://kaustubhtripathi-code.github.io/everfold-suite/**
+(repo `kaustubhtripathi-code/everfold-suite` — the local folder is still
+`productivity-suite-site`, so folder name ≠ repo name ≠ brand name. All three are the same
+thing.)
 
 **2026-07-25 rebrand — "Studio Stack" is DEAD as a brand.** The page now reads **Everfold
 Suite**, an Everfold Labs product; the wordmark links to everfold-site and everfold-site's
@@ -10,11 +12,12 @@ catalogue carries a "Everfold Suite" bundle card pointing back here. Studio Stac
 superseded by Everfold Labs as the studio-wide brand and two competing storefronts under
 different names was the problem this fixes.
 
-⚠ **USER STEP (only you can do it):** the repo and therefore the Pages URL are still
-`studio-stack`. Renaming the repo to e.g. `everfold-suite` changes the live URL and GitHub
-Pages does **not** redirect old paths — everfold-site's bundle card and freelanceros-site's
-footer both hardcode the current `/studio-stack/` URL, so rename and update those together
-or not at all. Nothing is broken if you leave the repo name as is.
+**2026-07-25 repo rename — `studio-stack` → `everfold-suite`** (done, at user request).
+The only inbound link anywhere was everfold-site's bundle card; it was updated to the new
+Pages URL in the same pass. GitHub redirects the *repo* URL
+(`github.com/…/studio-stack` → `…/everfold-suite`) but **does NOT redirect the Pages URL** —
+`kaustubhtripathi-code.github.io/studio-stack/` is dead. If you ever find that old path in
+a bookmark, post, or DM, it will 404; point it at `/everfold-suite/`.
 
 - Self-contained `index.html`; real Playwright screenshots + demo video in `assets\`.
 - Redeploy = push to `main`; Pages serves from root.
