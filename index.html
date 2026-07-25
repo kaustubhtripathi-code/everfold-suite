@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Studio Stack — the freelancer's productivity suite</title>
-<meta name="description" content="FreelancerOS, Snapline, ScribeGlass Pro and JARVIS — one calm, private stack to run your freelance business: capture, note, speak, and ship." />
+<title>Everfold Suite — the freelancer's productivity stack</title>
+<meta name="description" content="FreelancerOS, Snapline, ScribeGlass Pro and JARVIS — one calm, private stack to run your freelance business: capture, note, speak, and ship. From Everfold Labs." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
+  :root{color-scheme:dark;
     --bg:#08090d; --bg-2:#0d0f15; --card:#111420; --line:#1e2230;
     --ink:#eef1f7; --muted:#9aa3b5; --faint:#6b7385;
     --os:#6366f1; --snap:#0a84ff; --scribe:#14b8a6; --jarvis:#a855f7;
@@ -127,26 +127,56 @@
   .reveal{opacity:0; transform:translateY(18px); transition:.7s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1; transform:none}
 
+  /* mobile nav — native <details>, no JS */
+  .menu{position:relative; display:flex}
+  .menu>summary{display:none; list-style:none}
+  .menu>summary::-webkit-details-marker{display:none}
+  @media(min-width:861px){.menu::details-content{content-visibility:visible; block-size:auto}}
+
   @media(max-width:860px){
     .prod{grid-template-columns:1fr; gap:32px} .prod.rev .copy{order:0}
     .grid4,.stats,.tiers{grid-template-columns:1fr}
     .stats{grid-template-columns:repeat(2,1fr)}
-    .nav nav{display:none}
+
+    /* hamburger goes last so the drop-down anchors to the right edge, not mid-bar */
+    .menu{order:3}
+    .menu>summary{
+      display:grid; place-items:center; width:44px; height:44px; cursor:pointer;
+      border:1px solid var(--line); border-radius:12px; color:var(--ink);
+    }
+    .menu>summary::after{
+      content:""; width:18px; height:2px; background:currentColor; border-radius:2px;
+      box-shadow:0 -6px 0 currentColor, 0 6px 0 currentColor;
+    }
+    .menu[open]>summary{border-color:var(--snap)}
+    .menu:not([open])>nav{display:none}
+    .nav nav{
+      position:absolute; right:0; top:calc(100% + 14px); z-index:80;
+      flex-direction:column; align-items:stretch; gap:2px;
+      min-width:min(74vw,250px); padding:10px;
+      background:var(--card); border:1px solid var(--line); border-radius:16px;
+      box-shadow:0 26px 60px rgba(0,0,0,.55);
+    }
+    .nav nav a{padding:13px 14px; border-radius:10px; font-size:15px}
+    .nav nav a:hover{background:var(--bg-2)}
   }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <div class="brand"><span class="logo"></span> Studio&nbsp;Stack</div>
-    <nav>
-      <a href="#freelanceros">FreelancerOS</a>
-      <a href="#snapline">Snapline</a>
-      <a href="#watch">Demo</a>
-      <a href="#scribeglass">ScribeGlass</a>
-      <a href="#jarvis">JARVIS</a>
-      <a href="#pricing">Pricing</a>
-    </nav>
+    <a class="brand" href="https://kaustubhtripathi-code.github.io/everfold-site/"><span class="logo"></span> Everfold&nbsp;Suite</a>
+    <details class="menu">
+      <summary aria-label="Open menu"></summary>
+      <nav onclick="this.parentElement.open=false">
+        <a href="#freelanceros">FreelancerOS</a>
+        <a href="#snapline">Snapline</a>
+        <a href="#watch">Demo</a>
+        <a href="#scribeglass">ScribeGlass</a>
+        <a href="#jarvis">JARVIS</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </details>
     <a class="btn btn-primary" href="#pricing">Get the stack</a>
   </div>
 </header>
@@ -343,7 +373,7 @@
           <li><span class="ck">✓</span> Tax estimation, accounting export, unlimited portals</li>
           <li><span class="ck">✓</span> Snapline &amp; ScribeGlass built right in</li>
         </ul>
-        <a class="cta" href="#">Start 14-day trial</a>
+        <a class="cta" href="mailto:kaustubh.trt@gmail.com?subject=Everfold%20Suite%20—%20Pro%20trial">Start 14-day trial</a>
       </div>
 
       <div class="tier">
@@ -356,7 +386,7 @@
           <li><span class="ck">✓</span> Roles, permissions & admin controls</li>
           <li><span class="ck">✓</span> Priority support</li>
         </ul>
-        <a class="cta" href="#">Start team trial</a>
+        <a class="cta" href="mailto:kaustubh.trt@gmail.com?subject=Everfold%20Suite%20—%20Team%20trial">Start team trial</a>
       </div>
 
       <div class="tier">
@@ -369,7 +399,7 @@
           <li><span class="ck">✓</span> SLA + dedicated support</li>
           <li><span class="ck">✓</span> Onboarding &amp; migration help</li>
         </ul>
-        <a class="cta" href="#">Talk to us</a>
+        <a class="cta" href="mailto:kaustubh.trt@gmail.com?subject=Everfold%20Suite%20—%20Studio%20plan">Talk to us</a>
       </div>
     </div>
   </div>
@@ -389,16 +419,20 @@
 
 <footer>
   <div class="wrap foot">
-    <div class="brand" style="font-size:15px"><span class="logo"></span> Studio Stack</div>
+    <div class="brand" style="font-size:15px"><span class="logo"></span> Everfold Suite</div>
     <div>FreelancerOS · Snapline · ScribeGlass Pro · JARVIS</div>
-    <div>© <span id="yr"></span> · Built for freelancers who'd rather be working.</div>
+    <div>© <span id="yr"></span> · <a href="https://kaustubhtripathi-code.github.io/everfold-site/" style="color:var(--muted)">An Everfold Labs product</a> · <a href="mailto:kaustubh.trt@gmail.com" style="color:var(--snap)">kaustubh.trt@gmail.com</a></div>
   </div>
 </footer>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); else io.observe(el);
+  });
+  // Failsafe: content must never depend on the animation running.
+  setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>{el.style.transition='none';el.classList.add('in')}), 1200);
   // pricing monthly/annual toggle
   const tg = document.getElementById('billToggle');
   tg.addEventListener('click', (e)=>{
@@ -409,7 +443,5 @@
     document.getElementById('annualNote').style.display = p==='a' ? 'block' : 'none';
   });
 </script>
-
-<div style="border-top:1px solid rgba(128,128,128,.3);padding:24px 16px;text-align:center;font-size:14px;opacity:.8">Contact: <a href="mailto:kaustubh.trt@gmail.com" style="color:inherit;text-decoration:underline">kaustubh.trt@gmail.com</a></div>
 </body>
 </html>
